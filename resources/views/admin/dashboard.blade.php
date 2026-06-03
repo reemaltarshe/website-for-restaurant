@@ -128,20 +128,20 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://js.pusher.com/8.2.0/pusher.min.js"></script>
     <script>
-       // 1. تفعيل اللوج للتأكد
+     
    Pusher.logToConsole = true;
     var pusher = new Pusher('5dc351f4e6d4fe449aae', { cluster: 'mt1' });
     var channel = pusher.subscribe('restaurant-channel');
 
-    // سنستخدم bind_global لنعرف ما هو الاسم الذي يرسله السيرفر فعلياً عند وصول حجز
+ 
     channel.bind_global(function(eventName, data) {
-        console.log("وصل حدث باسم:", eventName); // هذا سيخبرنا بالاسم الحقيقي
+        console.log("وصل حدث باسم:", eventName); 
         console.log("البيانات:", data);
 
-        // هنا نضع شرطاً مرناً: إذا احتوى الاسم على كلمة BookingCreated
+       
         if (eventName.includes('BookingCreated')) {
              alert("حجز جديد باسم: " + data.book.name);
-             // هنا يمكنكِ وضع كود إضافة الصف للجدول أو تشغيل الصوت
+         
         }
     });
 
